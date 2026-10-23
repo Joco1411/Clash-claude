@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#2f6b1f">
+<title>Clash Claude</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<!-- ===== Village HUD ===== -->
+<div id="hud">
+  <div id="topLeft">
+    <div class="player">
+      <div class="lvlBadge" id="hudLevel">1</div>
+      <div>
+        <div class="pname" id="hudName">Chief</div>
+        <div class="xpbar"><div id="hudXp"></div></div>
+      </div>
+    </div>
+    <div class="trophies"><span class="ico trophy"></span><span id="hudTrophies">0</span></div>
+  </div>
+  <div id="topCenter">
+    <div class="builders" id="hudBuilders"><span class="ico hammer"></span><span id="hudBuildersTxt">0/1</span><button class="plus" id="btnBuyBuilder">+</button></div>
+  </div>
+  <div id="topRight">
+    <div class="resbar gold"><div class="max" id="hudGoldMax">Max: 1000</div><div class="bar"><div class="fill" id="hudGoldFill"></div><span id="hudGold">0</span></div><span class="ico coin"></span></div>
+    <div class="resbar elixir"><div class="max" id="hudElixirMax">Max: 1000</div><div class="bar"><div class="fill" id="hudElixirFill"></div><span id="hudElixir">0</span></div><span class="ico drop"></span></div>
+    <div class="resbar gems"><div class="bar short"><span id="hudGems">0</span></div><span class="ico gem"></span></div>
+  </div>
+  <div id="bottomLeft">
+    <button class="bigbtn attack" id="btnAttack"><span class="ico swords"></span><span>Attack!</span></button>
+  </div>
+  <div id="bottomRight">
+    <button class="sidebtn" id="btnSettings" title="Settings"><span class="ico gear"></span></button>
+    <button class="sidebtn" id="btnClan" title="Clan"><span class="ico shield"></span></button>
+    <button class="sidebtn" id="btnArmy" title="Army"><span class="ico army"></span></button>
+    <button class="bigbtn shop" id="btnShop"><span class="ico cart"></span><span>Shop</span></button>
+  </div>
+</div>
+
+<!-- selected building panel -->
+<div id="selPanel" class="hidden">
+  <div class="selTitle" id="selTitle">Town Hall</div>
+  <div class="selSub" id="selSub">Level 1</div>
+  <div class="selBtns" id="selBtns"></div>
+</div>
+
+<!-- placement confirm -->
+<div id="placeBtns" class="hidden">
+  <button id="btnPlaceOk" class="round ok">✔</button>
+  <button id="btnPlaceCancel" class="round cancel">✖</button>
+</div>
+
+<!-- ===== Battle HUD ===== -->
+<div id="battleHud" class="hidden">
+  <div id="bTopLeft">
+    <div class="bEnemy" id="bEnemyName">Goblins</div>
+    <div class="bLootLbl">Available loot:</div>
+    <div class="bLoot"><span class="ico coin sm"></span><span id="bLootGold">0</span></div>
+    <div class="bLoot"><span class="ico drop sm"></span><span id="bLootElixir">0</span></div>
+  </div>
+  <div id="bTopCenter">
+    <div id="bPhase">Battle starts in:</div>
+    <div id="bTimer">0:30</div>
+  </div>
+  <div id="bTopRight">
+    <div class="bStars"><span class="star" id="bs1">★</span><span class="star" id="bs2">★</span><span class="star" id="bs3">★</span></div>
+    <div id="bPct">0%</div>
+    <div class="bLootLbl">Overall damage</div>
+  </div>
+  <div id="bBottom">
+    <button class="bigbtn end" id="btnEndBattle">End Battle</button>
+    <div id="bTroops"></div>
+    <button class="bigbtn next" id="btnNext">Next <span id="bNextCost"></span></button>
+  </div>
+  <div id="bHint">Tap or hold on the grass to deploy troops</div>
+</div>
+
+<!-- modal -->
+<div id="modalWrap" class="hidden">
+  <div id="modal">
+    <div class="mHead"><span id="mTitle">Title</span><button class="close" id="mClose">✖</button></div>
+    <div class="mTabs" id="mTabs"></div>
+    <div class="mBody" id="mBody"></div>
+  </div>
+</div>
+
+<!-- tutorial advisor -->
+<div id="advisor" class="hidden">
+  <div id="advisorArt"></div>
+  <div id="bubble"><div id="bubbleTxt"></div><div id="bubbleTap">Tap to continue</div></div>
+</div>
+<div id="tutArrow" class="hidden"></div>
+
+<div id="toast"></div>
+
+<div id="rotate"><div>↻</div><p>Rotate your device for the best experience</p></div>
+
+<script src="js/data.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/village.js"></script>
+<script src="js/render.js"></script>
+<script src="js/battle.js"></script>
+<script src="js/clan.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
