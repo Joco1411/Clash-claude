@@ -1,0 +1,11 @@
+{
+  "name": "Clash Claude",
+  "short_name": "Clash Claude",
+  "description": "A mobile village-building strategy game: build, train troops, raid goblins and fight clan wars.",
+  "start_url": "./index.html",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#2f6b1f",
+  "theme_color": "#2f6b1f",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
